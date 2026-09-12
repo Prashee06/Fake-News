@@ -30,9 +30,7 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 # TESSERACT
 # ============================================================
 
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 
 # ============================================================
@@ -388,7 +386,4 @@ def predict():
 # ============================================================
 
 if __name__ == "__main__":
-
-    app.run(
-        debug=True
-    )
+    app.run(host="0.0.0.0", port=5000, debug=False)

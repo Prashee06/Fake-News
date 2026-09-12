@@ -4,15 +4,5 @@ __pycache__/
 .env
 .idea/
 .vscode/
-
-test_data.csv
-
 *.log
-
-.DS_Store
-# Large datasets
-dataset/Fake.csv
-dataset/True.csv
-dataset/processed_news.csv
-processed_dataset.csv
-train_data.csv
+uploads/*
