@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    margin: 0;
+}
+
+
+.header {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+
+.container {
+    max-width: 850px;
+    margin: 35px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+}
+
+
+.upload-box {
+    border: 2px dashed #aaa;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+
+input[type="file"] {
+    margin: 20px;
+}
+
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+.result {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    background: #f3f4f6;
+}
+
+
+.result h2 {
+    text-align: center;
+}
+
+
+.section {
+    margin-top: 25px;
+}
+
+
+.source {
+    padding: 15px;
+    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+}
+
+
+.source a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+
+.source a:hover {
+    text-decoration: underline;
+}
+
+
+.error {
+    background: #fee2e2;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    color: #991b1b;
+}
+
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+
+.claim-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #eef4ff;
+    border-radius: 10px;
+    border-left: 5px solid #2563eb;
+}
+
+
+.claim-box h3 {
+    margin-top: 0;
+}
+
+
+.claim-box p {
+    line-height: 1.6;
+}

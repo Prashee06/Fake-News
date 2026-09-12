@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI News Verification System</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="header">
+
+    <h1>📰 AI News Verification System</h1>
+
+    <p>
+        Image-Based Fake News Detection Using BiLSTM
+    </p>
+
+</div>
+
+
+<div class="container">
+
+    <h2>📷 Upload News Image</h2>
+
+    <p>
+        Upload a screenshot or photograph containing
+        a news headline or news information.
+    </p>
+
+
+    <form
+        action="/predict"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <div class="upload-box">
+
+            <p>📸 Select News Image</p>
+
+            <input
+                type="file"
+                name="image"
+                accept="image/*"
+                required
+            >
+
+        </div>
+
+
+        <button type="submit">
+
+            🔍 CHECK NEWS
+
+        </button>
+
+    </form>
+
+
+    {% if error %}
+
+    <div class="error">
+
+        ❌ {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+    {% if final_result %}
+
+    <div class="result">
+
+        <h2>
+            {{ final_result }}
+        </h2>
+
+
+        <!-- BiLSTM -->
+
+        <div class="section">
+
+            <h3>🤖 BiLSTM Prediction</h3>
+
+            <p>
+                Prediction:
+                <b>{{ prediction }}</b>
+            </p>
+
+            <p>
+                Confidence:
+                <b>{{ confidence }}%</b>
+            </p>
+
+        </div>
+
+
+        <!-- OCR -->
+
+        <div class="section">
+
+            <h3>🔤 Extracted News Text</h3>
+
+            <textarea readonly>{{ extracted_text }}</textarea>
+
+        </div>
+
+
+        <!-- REAL WORLD VERIFICATION -->
+
+        <div class="section">
+
+            <h3>🌐 Real-World Verification</h3>
+
+            <p>
+
+                Verification Status:
+
+                <b>
+                    {{ verification }}
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Evidence Score:
+
+                <b>
+                    {{ evidence_score }}%
+                </b>
+
+            </p>
+
+
+            <div class="claim-box">
+
+                <h3>
+                    📝 Incident Information
+                </h3>
+
+                <p>
+                    {{ incident_info }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEWS SOURCES -->
+
+        {% if news_results %}
+
+        <div class="section">
+
+            <h3>
+                📰 Matching News Reports
+            </h3>
+
+
+            {% for news in news_results %}
+
+            <div class="source">
+
+                <a
+                    href="{{ news.link }}"
+                    target="_blank"
+                >
+
+                    {{ news.title }}
+
+                </a>
+
+
+                {% if news.description %}
+
+                <p>
+                    {{ news.description }}
+                </p>
+
+                {% endif %}
+
+
+                {% if news.date %}
+
+                <p>
+                    📅 {{ news.date }}
+                </p>
+
+                {% endif %}
+
+
+                {% if news.match_score %}
+
+                <p>
+
+                    Match Score:
+
+                    <b>
+                        {{ news.match_score }}
+                    </b>
+
+                </p>
+
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+    {% endif %}
+
+
+</div>
+
+</body>
+
+</html>
