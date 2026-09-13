@@ -4,5 +4,8 @@ __pycache__/
 .env
 .idea/
 .vscode/
-*.log
 uploads/*
+dataset/
+processed_dataset.csv
+train_data.csv
+test_data.csv
