@@ -17,7 +17,17 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                bat 'docker push prasheetha06/fake-news-bilstm:latest'
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-credentials',
+                    usernameVariable: 'DOCKER_USERNAME',
+                    passwordVariable: 'DOCKER_PASSWORD'
+                )]) {
+                    bat '''
+                        echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin
+                        docker push prasheetha06/fake-news-bilstm:latest
+                        docker logout
+                    '''
+                }
             }
         }
     }
