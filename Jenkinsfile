@@ -1,4 +1,9 @@
 pipeline {
+
+    environment {
+        KUBECONFIG = 'C:\\ProgramData\\Jenkins\\.kube\\config'
+    }
+
     agent any
 
     stages {
@@ -30,10 +35,11 @@ pipeline {
                 }
             }
         }
+
         stage('Check Kubernetes') {
             steps {
-                  bat 'kubectl config current-context'
-                  bat 'kubectl get nodes'
+                bat 'kubectl config current-context'
+                bat 'kubectl get nodes'
             }
         }
 
