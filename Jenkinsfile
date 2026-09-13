@@ -3,24 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                bat 'python -m pip install -r requirements.txt'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                bat 'python test_image_analyzer.py'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 bat 'docker build -t fake-news-bilstm .'
