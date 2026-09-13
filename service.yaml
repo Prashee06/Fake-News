@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: fake-news-service
+
+spec:
+  selector:
+    app: fake-news
+
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+
+  type: NodePort
