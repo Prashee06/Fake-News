@@ -30,6 +30,12 @@ pipeline {
                 }
             }
         }
+        stage('Check Kubernetes') {
+            steps {
+                  bat 'kubectl config current-context'
+                  bat 'kubectl get nodes'
+            }
+        }
 
         stage('Deploy to Kubernetes') {
             steps {
